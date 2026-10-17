@@ -35,6 +35,12 @@ IMG = {
     'campus-exterior': U.format('1562774053-701939374585'),
     'study-desk': U.format('1450101499163-c8848c66ca85'),
     'editor-portrait': U.format('1635859890085-ec8cb5466806'),
+    'students-table': U.format('1517048676732-d65bc937f952'),
+    'student-reading': U.format('1529007196863-d07650a3f0ea'),
+    'lecture-hall': U.format('1536925155833-43e9c2b2f499'),
+    'campus-walk': U.format('1576495199011-eb94736d05d6'),
+    'students-cafe': U.format('1543269865-cbf427effbad'),
+    'library-shelves': U.format('1427504494785-3a9ca7044f45'),
 }
 
 
@@ -44,7 +50,7 @@ def photo(name, label, alt, extra=''):
 
 
 NAV = [('index.html', 'Home'), ('services.html', 'Services'), ('pricing.html', 'Pricing'),
-       ('about.html', 'About'), ('faq.html', 'FAQ'), ('integrity.html', 'Our standards')]
+       ('about.html', 'About'), ('faq.html', 'FAQ'), ('samples.html', 'Free sample')]
 
 
 def page(fname, title, desc, body, cta=True):
@@ -54,12 +60,12 @@ def page(fname, title, desc, body, cta=True):
 <section class="cta band-night">
   <div class="wrap">
     <div class="copy rv">
-      <h2>Want to see our editing first?</h2>
-      <p>Tell us your subject and we will send a short excerpt of real tracked changes, so you can judge the work before you pay for anything.</p>
+      <h2>Not sure yet? Try us first.</h2>
+      <p>Before you trust us with your work, ask for a free sample. Tell us your subject and we will send real tracked edits, so you can judge the quality before you pay anything.</p>
     </div>
     <div class="actions rv">
-      <a class="btn btn-yellow" href="{wa('Hi Verbix, could I see a sample edit for my subject?')}">{WA_ICON}Ask for a sample</a>
-      <a class="btn btn-text" style="color:#fff" href="mailto:{EMAIL}">{EMAIL}</a>
+      <a class="btn btn-yellow" href="{wa('Hi Verbix, could I see a sample edit for my subject?')}">{WA_ICON}Ask for a free sample</a>
+      <a class="btn btn-text" style="color:#fff" href="samples.html">How samples work</a>
     </div>
   </div>
 </section>''' if cta else ''
@@ -108,6 +114,7 @@ def page(fname, title, desc, body, cta=True):
       <li><a href="about.html">About us</a></li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="faq.html">FAQ</a></li>
+      <li><a href="samples.html">Free sample</a></li>
       <li><a href="integrity.html">Our standards</a></li>
     </ul></div>
     <div><h3>Talk to us</h3><ul>
@@ -152,7 +159,7 @@ home = f'''
         <a class="btn btn-blue" href="{wa()}">{WA_ICON}Get a quote on WhatsApp</a>
         <a class="btn btn-text" href="pricing.html">See prices</a>
       </div>
-      <p class="muted" style="font-size:1rem">Your quote arrives within 2 hours. You pay only when you agree to it.</p>
+      <p class="muted" style="font-size:1rem">Your quote arrives within 2 hours. Not ready to commit? <a href="samples.html">Ask for a free sample first.</a></p>
     </div>
     <aside class="ms-margin" aria-label="Example editor notes">
       <p class="label">In the margin</p>
@@ -188,6 +195,23 @@ home = f'''
 </section>
 
 <section class="section">
+  <div class="wrap about-grid">
+    {photo('lecture-hall', 'student reading in a lecture hall', 'A student reading alone in an empty lecture hall')}
+    <div class="prose rv">
+      <p class="kicker">Free sample</p>
+      <h2 style="margin-top:0;font-size:clamp(2.1rem,4vw,3.2rem)">See our editing before you trust us with yours.</h2>
+      <p>Handing your work to someone new takes trust, so you don&rsquo;t have to take our word for it. Tell us your subject and level, and we will send you a free sample of real tracked edits in that field.</p>
+      <ul>
+        <li>Free, with no obligation to order</li>
+        <li>Matched to your subject: business, nursing, computing, engineering and more</li>
+        <li>Usually sent the same day on WhatsApp or email</li>
+      </ul>
+      <div class="actions"><a class="btn btn-blue" href="{wa('Hi Verbix, could I see a free sample edit for my subject?')}">{WA_ICON}Ask for a free sample</a><a class="btn btn-text" href="samples.html">How it works</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="section band-margin">
   <div class="wrap split">
     <div class="rv">
       <p class="kicker">Services and prices</p>
@@ -205,7 +229,7 @@ home = f'''
   </div>
 </section>
 
-<section class="section band-margin">
+<section class="section">
   <div class="wrap about-grid">
     {photo('campus-library', 'university library', 'Students studying in a university library')}
     <div class="prose rv">
@@ -331,6 +355,7 @@ pricing = f'''
       <h1>A fixed price, {hl('before')} you pay.</h1>
       <p class="lead">Send your file and you will get an exact quote within 2 hours. No hidden fees and no payment until you say yes.</p>
     </div>
+    {photo('students-table', 'students working together', 'Students working through papers together at a table')}
   </div>
 </section>
 <section class="section">
@@ -413,7 +438,7 @@ FAQ = [
     ('How do I get a quote?',
      [f'Send your file on <a href="{wa()}">WhatsApp</a> or to <a href="mailto:{EMAIL}">{EMAIL}</a>, with your deadline and the service you want. You will get a fixed price and delivery date within 2 hours.']),
     ('Can I see a sample of your editing?',
-     ['Yes. Tell us your subject and level, and we will send a short excerpt of real tracked edits in that field. We do not publish samples online to protect our clients’ work.']),
+     ['Yes, and it is free. Tell us your subject and level, and we will send a short excerpt of real tracked edits in that field, so you can judge our work before you trust us with yours. We do not publish samples online to protect our clients’ work. <a href="samples.html">How samples work</a>.']),
     ('How do I pay?',
      ['Once you accept the quote, we send the payment options with it. You pay before the edit starts, and the price never changes after you agree.']),
     ('What do I get back?',
@@ -435,7 +460,9 @@ faq = f'''
     <p class="kicker">FAQ</p>
     <h1>Good {hl('questions.')}</h1>
     <p class="lead">The things students ask us most. Anything else, ask on WhatsApp.</p>
-  </div></div>
+  </div>
+  {photo('students-cafe', 'students talking', 'A group of students talking at a cafe table')}
+  </div>
 </section>
 <section class="section"><div class="wrap"><div class="faq" style="max-width:920px">{faq_html}</div></div></section>
 '''
@@ -449,7 +476,9 @@ integrity = f'''
     <p class="kicker">Our standards</p>
     <h1>Your work stays {hl('yours.')}</h1>
     <p class="lead">Verbix provides editing, feedback and guidance. This page sets out exactly what that means.</p>
-  </div></div>
+  </div>
+  {photo('student-reading', 'student with a book', 'A student holding a book in a library')}
+  </div>
 </section>
 <section class="section">
   <div class="wrap policy">
@@ -483,6 +512,70 @@ integrity = f'''
 page('integrity.html', 'Our standards | Verbix academic editing',
      'Verbix offers editing, feedback and guidance only. Read what we do, what we never do and how we protect your privacy.', integrity)
 
+
+# ---------------------------------------------------------------- Samples
+sample_fields = ''.join(
+    f'<div class="field rv">{photo(n, l, a)}<h3>{t}</h3></div>' for n, l, a, t, p in FIELDS)
+samples = f'''
+<section class="page-head">
+  <div class="wrap">
+    <div class="copy">
+      <p class="kicker">Free sample</p>
+      <h1>Try us before you {hl('trust us.')}</h1>
+      <p class="lead">You should see how we edit before you hand over your work. Ask for a free sample and judge the quality for yourself. No payment, no obligation.</p>
+      <div class="actions">
+        <a class="btn btn-blue" href="{wa('Hi Verbix, could I see a free sample edit for my subject?')}">{WA_ICON}Ask on WhatsApp</a>
+        <a class="btn btn-line" href="mailto:{EMAIL}?subject=Free%20sample%20request">Ask by email</a>
+      </div>
+    </div>
+    {photo('library-shelves', 'student in a university library', 'A student with a backpack beside library bookshelves')}
+  </div>
+</section>
+
+<section class="section band-blue">
+  <div class="wrap">
+    <div class="section-head">
+      <div style="display:flex;flex-direction:column;gap:14px"><p class="kicker" style="color:var(--highlighter)">How it works</p><h2>Three steps to your sample</h2></div>
+    </div>
+    <ol class="steps">
+      <li class="rv"><span class="n">1</span><h3>Tell us your subject</h3><p>Message us with your subject, level and the service you are thinking about.</p></li>
+      <li class="rv"><span class="n">2</span><h3>Get real tracked edits</h3><p>We send a short excerpt in your field, with every change and comment visible.</p></li>
+      <li class="rv"><span class="n">3</span><h3>Decide in your own time</h3><p>Order only if you like what you see. No pressure and no follow-up spam.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div style="display:flex;flex-direction:column;gap:14px"><p class="kicker">Samples by field</p><h2>A sample from your subject, not a generic one.</h2></div>
+      <p>We match the sample to your field, so you see how we handle the terms, structure and referencing your markers expect.</p>
+    </div>
+    <div class="fields">{sample_fields}</div>
+  </div>
+</section>
+
+<section class="section band-margin">
+  <div class="wrap">
+    <div class="do-dont rv" style="max-width:980px">
+      <div class="yes"><h3>What you get</h3><ul>
+        <li>A short excerpt, about one page, with tracked changes</li>
+        <li>Margin comments that explain the edits</li>
+        <li>A sample from your subject and level</li>
+        <li>Free, usually sent the same day</li>
+      </ul></div>
+      <div class="no"><h3>What a sample is not</h3><ul>
+        <li>A finished essay or assignment</li>
+        <li>Another client&rsquo;s work. Samples come from material we have permission to use</li>
+        <li>A promise of a grade</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+'''
+page('samples.html', 'Free sample | Verbix academic editing',
+     'Ask for a free sample of our editing in your subject before you order. No payment, no obligation.', samples, cta=False)
+
 # ---------------------------------------------------------------- Contact
 opts = ''.join(f'<option>{s[0]}</option>' for g in GROUPS for s in g[3])
 contact = f'''
@@ -490,8 +583,10 @@ contact = f'''
   <div class="wrap"><div class="copy">
     <p class="kicker">Contact</p>
     <h1>Send your draft. Get a {hl('quote.')}</h1>
-    <p class="lead">A fixed price and delivery date within 2 hours. You pay only when you agree.</p>
-  </div></div>
+    <p class="lead">A fixed price and delivery date within 2 hours. You pay only when you agree. Want to see our work first? <a href="samples.html">Ask for a free sample.</a></p>
+  </div>
+  {photo('campus-walk', 'university campus', 'Students walking past a university building')}
+  </div>
 </section>
 <section class="section">
   <div class="wrap" style="display:flex;flex-direction:column;gap:64px">
